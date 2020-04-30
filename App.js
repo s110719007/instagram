@@ -21,6 +21,7 @@ import SettingsScreen from './src/screens/SettingsScreen';
 import MeScreen from './src/screens/MeScreen';
 import SearchScreen from './src/screens/SearchScreen';
 import albumData from "./src/json/albums.json";
+import ShareScreen from './src/screens/ShareScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -36,7 +37,7 @@ const AlbumStack = ({navigation}) => {
           options={{
             title: albumData.albumTitle,
             headerStyle:{ backgroundColor:'#2B475D',
-            height:80,
+            height:90,
             
             },
             
@@ -47,8 +48,10 @@ const AlbumStack = ({navigation}) => {
             }, 
             headerLeft: () => (
               <View style={{marginLeft: 20}}>
+               
               <Ionicons 
-                name={'ios-menu'} 
+                name={'ios-menu'}
+                color='#fff' 
                 size={30} 
                 onPress={() => navigation.openDrawer()}
               /> 
@@ -63,7 +66,7 @@ const AlbumStack = ({navigation}) => {
             title: '步行紀錄',
             headerStyle: {
               backgroundColor: '#2B475D',
-              height:80,
+              height:90,
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -88,7 +91,7 @@ const SearchStack = ({navigation}) => {
               borderColor:'#2B475D',
              
               backgroundColor: '#2B475D',
-              height:80,
+              height:90,
             },
             headerTitleStyle: {
               fontWeight: '600',
@@ -100,6 +103,42 @@ const SearchStack = ({navigation}) => {
               <Ionicons 
                 name={'ios-menu'} 
                 size={30} 
+                color='#fff' 
+                onPress={() => navigation.openDrawer()}
+              /> 
+              </View>            
+            ),              
+          }}
+        />  
+      </Stack.Navigator>
+  );
+}
+
+const ShareStack = ({navigation}) => {
+  return (
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="Share" 
+          component={ShareScreen} 
+          options={{
+            headerStyle: {
+              borderColor:'#2B475D',
+             
+              backgroundColor: '#2B475D',
+              height:90,
+            },
+            title: 'Share',
+            headerTitleStyle: {
+              fontWeight: '400',
+              fontSize: 20,
+              color:'#fff'
+            },
+            headerLeft: () => (
+              <View style={{marginLeft: 20}}>
+              <Ionicons 
+                name={'ios-menu'} 
+                size={30} 
+                color='#fff' 
                 onPress={() => navigation.openDrawer()}
               /> 
               </View>            
@@ -121,7 +160,7 @@ const MeStack = ({navigation}) => {
               borderColor:'#2B475D',
              
               backgroundColor: '#2B475D',
-              height:80,
+              height:90,
             },
             title: '個人資料',
             headerTitleStyle: {
@@ -134,6 +173,7 @@ const MeStack = ({navigation}) => {
               <Ionicons 
                 name={'ios-menu'} 
                 size={30} 
+                color='#fff' 
                 onPress={() => navigation.openDrawer()}
               /> 
               </View>            
@@ -155,7 +195,7 @@ const SettingsStack = ({navigation}) => {
               borderColor:'#2B475D',
              
               backgroundColor: '#2B475D',
-              height:80,
+              height:90,
             },
             title: 'Settings',
             headerTitleStyle: {
@@ -168,6 +208,7 @@ const SettingsStack = ({navigation}) => {
               <Ionicons 
                 name={'ios-menu'} 
                 size={30} 
+                color='#fff' 
                 onPress={() => navigation.openDrawer()}
               /> 
               </View>            
@@ -177,6 +218,8 @@ const SettingsStack = ({navigation}) => {
       </Stack.Navigator>
   );
 }
+
+
 
 const CustomDrawerAnimatedContent = ({ progress, ...rest }) => {
   const translateX = Animated.interpolate(progress, {
@@ -257,8 +300,8 @@ const App = () => {
           }
         />    
         <Drawer.Screen 
-          name="share" 
-          component={SettingsStack} 
+          name="Share" 
+          component={ShareStack} 
           options={
             {
               drawerLabel: 'Share',

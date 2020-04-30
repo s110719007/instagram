@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "myproj",
-    "slug": "my8proj",
+    "slug": "myproj",
     "platforms": [
       "ios",
       "android",

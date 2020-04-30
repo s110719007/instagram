@@ -1,15 +1,30 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View, Image,ScrollView } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image,ScrollView} from "react-native";
 
 import albumData from "../json/albums.json";
 import DetailScreen from "./DetailScreen";
 
 const AlbumScreen = ({navigation }) => {
   return (
+      
     <ScrollView>
     <View style={styles.back}>
-        <View>
-            
+        <View style={styles.top}>
+        <TouchableOpacity 
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
+          > 
+            <Text style={styles.cata}>健康類別</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
+          > 
+            <Text style={styles.record}>健康紀錄</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
+          > 
+            <Text style={styles.ask}>在線諮詢 </Text>
+            </TouchableOpacity>
             </View>
         <View style={styles.box1}>
         <TouchableOpacity 
@@ -163,8 +178,35 @@ const AlbumScreen = ({navigation }) => {
 }
 const styles = StyleSheet.create({
 
+    top:{
+        height:35,
+        width:400,
+        backgroundColor:'#fff',
+        shadowColor: "#000",
+        shadowOffset:{width:5,height:5},
+        shadowOpacity:0.2,
+        borderWidth:0.8,
+        borderColor:'#d1d1d1',
+        
+    },
+    cata:{
+        fontSize:18,
+        marginTop:7,
+        marginLeft:30
+    },
+    record:{
+        fontSize:18,
+        marginTop:-19,
+        marginLeft:150
+    },
+    ask:{
+        fontSize:18,
+        marginTop:-21,
+        marginLeft:270
+    },
+
 back:{
-    height:800,
+    height:850,
     backgroundColor:'#f8f8f8',
 },
 box1:{
