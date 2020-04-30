@@ -31,7 +31,7 @@ const AlbumStack = ({navigation}) => {
   return (
       <Stack.Navigator>
         <Stack.Screen 
-          name="Home" 
+          name="健康類別" 
           component={AlbumScreen} 
           options={{
             title: albumData.albumTitle,
@@ -60,7 +60,7 @@ const AlbumStack = ({navigation}) => {
           name="Detail" 
           component={DetailScreen}
           options={({ route }) => ({ 
-            title: route.params.title,
+            title: '步行紀錄',
             headerStyle: {
               backgroundColor: '#2B475D',
               height:80,
@@ -151,10 +151,17 @@ const SettingsStack = ({navigation}) => {
           name="Settings" 
           component={SettingsScreen} 
           options={{
+            headerStyle: {
+              borderColor:'#2B475D',
+             
+              backgroundColor: '#2B475D',
+              height:80,
+            },
             title: 'Settings',
             headerTitleStyle: {
               fontWeight: '400',
-              fontSize: 20
+              fontSize: 20,
+              color:'#fff'
             },
             headerLeft: () => (
               <View style={{marginLeft: 20}}>
