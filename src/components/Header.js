@@ -11,11 +11,15 @@ const Header = (props) => {
 
 const styles = StyleSheet.create({
   headerStyle: {
-    backgroundColor: "#F8F8F8",
+    backgroundColor: "#2B475D",
     justifyContent: "center",
     alignItems: "center",
-    height: 70,
+    height: 90,
     paddingTop: 30,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    // Android Only
     elevation: 2
   },
   textStyle: {
